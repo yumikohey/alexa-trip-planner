@@ -177,7 +177,7 @@ var startGameHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
     },
     'TempYesIntent': function() {
         this.handler.state = states.GUESSMODE;
-        this.emit(':ask', 'Great! ' + 'Please tell me where you want to go for how many days?', 'For example, you can tell me I want to go to San Francisco for two days.');
+        this.emit(':ask', 'Great! ' + 'Please tell me where you want to go for how many days? For example, you can tell me I want to go to San Francisco for two days.');
     },
 });
 
@@ -197,7 +197,41 @@ var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
             .then(function(response){
                 var result = response.data.city_state[0];
                 console.log('You want to go to ' + result + ' for ' + travelDays + ' days.');
-                _this.emit(':tell', 'You want to go to ' + result + ' for ' + travelDays + ' days.');
+                _this.attributes['city_state'] = result;
+                _this.attributes['travel_days'] = travelDays;
+                _this.emit(':ask', 'You want to go to ' + result + ' for ' + travelDays + ' days? I will go ahead and plan your trip if you say Yes.');
+            });
+    },
+    'TempYesIntent': function() {
+        var city = this.attributes['city_state'].split(', ')[0];
+        var state = this.attributes['city_state'].split(', ')[1];
+        var travelDays = parseInt(this.attributes['travel_days']);
+        this.attributes['trips'] = [];
+        var _this = this;
+        var params = [
+			`city=${encodeURIComponent(city)}`,
+			`state=${encodeURIComponent(state)}`,
+			`n_days=${travelDays}`
+		].join('&');
+        var path = '/full_trip_search/?'
+        var completePath = host + path + params;
+        var sentenceStart = 'Here is your first day\'s trip details.';
+        var sentenceEnd = 'You can get the full trip details in your Alexa app.';
+        axios.get(completePath)
+            .then(function(response) {
+                var fullTrips = response.data.full_trip_details;
+                var listOfPointOfInterests = "";
+                fullTrips.forEach(function(item){
+                    if(_this.attributes['trips'][item.day]){
+                        _this.attributes['trips'][item.day].push({name: item.name, address: item.address})
+                    } else {
+                        _this.attributes['trips'][item.day] = [{name: item.name, address: item.address}]
+                    }
+                });
+                _this.attributes['trips'][0].forEach(function(item){
+                    listOfPointOfInterests += item.name + ", ";
+                })
+                _this.emit(':tell', sentenceStart + ' You can go to: ' + listOfPointOfInterests + sentenceEnd);
             });
     }
 });
