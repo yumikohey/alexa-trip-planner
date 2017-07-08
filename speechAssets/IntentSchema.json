@@ -1,0 +1,4 @@
+{"intents": [
+    {"intent": "GetCityAndDaysIntent", "slots": [{"name": "city", "type": "LITERAL"}, {"name": "travelDays", "type": "AMAZON.NUMBER"}]}
+  ]
+}

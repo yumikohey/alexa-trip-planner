@@ -1,0 +1,34 @@
+{
+  "session": {
+    "sessionId": "SessionId.3c676316-9f20-4164-b321-04a57ddcac77",
+    "application": {
+      "applicationId": "amzn1.ask.skill.13d4aad2-f855-4412-b1e2-3894cfab9255"
+    },
+    "attributes": {
+      "gamesPlayed": 0,
+      "guessNumber": 7,
+      "STATE": "_GUESSMODE",
+      "endedSessionCount": 0
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AENF74QZBGM2DVOD4UPMHYVJZWO5XXWYHXFZYEUYJZY6IALP47BFW62SRX7N2V276X6IRZF3QO2DANE77NLYPRZU5N2J4LHMHLRTOKJVAZNRFAPI7E3K6TNJNCKLQCFOP5HKXSMKJRWNNZFFSHIKQVN7OYVXTJGCFXWSCW37FVI4AHCNBIIB3IREVTVZI4VIZ7Q7ULID53HUJLY"
+    },
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.e4ca5651-75db-4370-9664-1b3fb6f15b60",
+    "locale": "en-US",
+    "timestamp": "2017-07-08T20:19:20Z",
+    "intent": {
+      "name": "NumberGuessIntent",
+      "slots": {
+        "number": {
+          "name": "number",
+          "value": "5"
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

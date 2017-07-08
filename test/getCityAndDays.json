@@ -1,0 +1,37 @@
+{
+  "session": {
+    "sessionId": "SessionId.1eab6996-c0d7-466a-9a96-fc3e637b9370",
+    "application": {
+      "applicationId": "amzn1.ask.skill.ffb4f895-1526-4b51-b8a1-fa3d0d3bb3ba"
+    },
+    "attributes": {
+      "gamesPlayed": 0,
+      "STATE": "_GUESSMODE",
+      "endedSessionCount": 0
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AEJZ42EHTE4EX7NQSRRXECRFD7BKLW5H5GHITJHTJRT77TMDDUB4NDEB65SATZ4XI3P3COGL2E7TXNW3QKQJ54CT3XOBOMGYM42SKW3QFFSDGYQSPYNMXVMEDLM6CSTL4PBEGAYY54EFQZAP53GI6EX4HU353RDM23MELPQ6CCXWV2UC3OWWIQ3L7TF5ZVQO46BQPKK23K6343Q"
+    },
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.92248d10-a369-4620-8cdb-4418ec1834bf",
+    "locale": "en-US",
+    "timestamp": "2017-07-08T21:47:30Z",
+    "intent": {
+      "name": "GetCityAndDays",
+      "slots": {
+        "City": {
+          "name": "City",
+          "value": "San Francisco"
+        },
+        "TravelDays": {
+          "name": "TravelDays",
+          "value": "3"
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
