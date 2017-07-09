@@ -151,13 +151,14 @@ exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
     alexa.APP_ID = appId;
     alexa.dynamoDBTableName = 'highLowGuessUsers';
-    alexa.registerHandlers(newSessionHandlers, guessModeHandlers, startGameHandlers);
+    alexa.registerHandlers(newSessionHandlers, guessModeHandlers, startGameHandlers, travelKitHandlers);
     alexa.execute();
 };
 
 var states = {
     GUESSMODE: '_GUESSMODE', // User is trying to guess the number.
-    STARTMODE: '_STARTMODE'  // Prompt the user to start or restart the game.
+    STARTMODE: '_STARTMODE',  // Prompt the user to start or restart the game.
+    BRINGSTUFFMODE: '_BRINGSTUFFMODE'
 };
 
 var newSessionHandlers = {
@@ -234,14 +235,14 @@ var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
                 var listOfPointOfInterests = "";
                 fullTrips.forEach(function(item){
                     if(_this.attributes['trips'][item.day]){
-                        _this.attributes['trips'][item.day].push({name: item.name, address: item.address})
+                        _this.attributes['trips'][item.day].push({name: item.name, address: item.address, duration: item.adjusted_visit_length})
                     } else {
-                        _this.attributes['trips'][item.day] = [{name: item.name, address: item.address}]
+                        _this.attributes['trips'][item.day] = [{name: item.name, address: item.address, duration: item.adjusted_visit_length}]
                     }
                 });
                 _this.attributes['trips'][0].forEach(function(item){
                     listOfPointOfInterests += item.name + ", ";
-                    cardContent += 'Place: ' + item.name + '\n';
+                    cardContent += 'Place: ' + item.name + ' (' + item.duration +' mins)\n';
                     // cardContent += 'Address: ' + item.address +'\n';
                 });
                 imageObj.smallImageUrl = fullTrips[0].img_url;
@@ -262,7 +263,8 @@ var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
         var listOfPointOfInterests = '';
         var sentenceStart = 'Here is your Day ' + theOtherDay +' trip details.';
         var cardContent = '';
-        var repromptSpeech = 'You can say, Please show me Day two trip detail.';
+        var repromptSpeech = 'You can ask me What do I need to bring.';
+        var sentenceEnd = '. You can ask me What do I need to bring.';
         this.attributes['trips'][theOtherDay - 1].forEach(function(item){
             listOfPointOfInterests += item.name + ", ";
             cardContent += 'Place: ' + item.name + '\n';
@@ -273,6 +275,51 @@ var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
             largeImageUrl: ''
         };
         listOfPointOfInterests = listOfPointOfInterests.substr(0, listOfPointOfInterests.length - 2);
-        this.emit(':askWithCard', sentenceStart + ' You can go to: ' + listOfPointOfInterests, repromptSpeech, cardTitle, cardContent, imageObj);
+        this.emit(':askWithCard', sentenceStart + ' You can go to: ' + listOfPointOfInterests + sentenceEnd, repromptSpeech, cardTitle, cardContent, imageObj);
+    },
+    'GrantListCardAccess': function() {
+        var permissions = ["write::alexa:household:list"];
+        var speechOutput = "Alexa List permissions are missing. You can grant permissions within the Alexa app.";
+        console.log(speechOutput);
+        this.emit(':tellWithPermissionCard', speechOutput, permissions);        
+    },
+    'ThingsToBringIntent': function() {
+        var basicItems = ['Toothbrush', 'Toothpatse', 'Towel', 'Flip Flops'];
+        var cardTitle = 'Travel Basic Package';
+        var cardContent = 'Please rembmer to bring: \n' + '1. '+ basicItems[0] + '\n' + '2. ' + basicItems[1]  + '\n' + '3. ' + basicItems[2]  + '\n' + '4. ' + basicItems[3] + '\n';
+        var sentenceEnd = 'Do you want to see what other travelers suggest to bring?';
+        var outputSpeech = cardContent + sentenceEnd;
+        this.handler.state = states.BRINGSTUFFMODE;
+        var imageObj = {
+            smallImageUrl: '',
+            largeImageUrl: ''
+        };
+        this.emit(':askWithCard', outputSpeech, sentenceEnd, cardTitle, cardContent, imageObj);
+    }
+});
+
+var travelKitHandlers = Alexa.CreateStateHandler(states.BRINGSTUFFMODE, {
+    'TempYesIntent': function () {
+        var smartResponses = [
+            { 
+                city: "San Francisco",
+                response: "Although it is summer season right now, be sure to always bring a warm jacket, cooler layers, activewear, a day pack, sunscreen, and comfortable shoes."
+            },
+            { 
+                city: "Chicago",
+                response: "To beat the heat, be sure to pack plenty of lightweight T-shirts and tank tops, light pants, shorts or dresses, sunglasses, hat, and comfortable shoes."
+            },
+            {
+                city: "Los Angeles",
+                response: "Stylish sunglasses, flip flops, swimsuits, high heels/sexy dresses for the clubs, and a cozy sweatshirt for chilly temps and bus rides."
+            }
+        ];
+        var cardTitle = "What other travelers will bring?";
+        var city = this.attributes["city_state"].split(', ')[0];
+        var returnResponse = smartResponses.find(function(item){
+            return item.city === city;
+        });
+        var outputSpeech = returnResponse ? returnResponse.response : smartResponses[2].response;
+        this.emit(':tellWithCard', outputSpeech, cardTitle, city);
     }
 });

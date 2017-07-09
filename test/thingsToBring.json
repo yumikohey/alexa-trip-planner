@@ -1,0 +1,128 @@
+{
+  "session": {
+    "sessionId": "SessionId.9ae3602e-56a2-4273-bde3-aeb774abf12f",
+    "application": {
+      "applicationId": "amzn1.ask.skill.ffb4f895-1526-4b51-b8a1-fa3d0d3bb3ba"
+    },
+    "attributes": {
+      "city_state": "San Francisco, CA",
+      "travel_days": 3,
+      "gamesPlayed": 0,
+      "trips": [
+        [
+          {
+            "name": "Alcatraz Island",
+            "address": "Pier 33, San Francisco, California, 94122, United States",
+            "duration": 180
+          },
+          {
+            "name": "Pier 39",
+            "address": "Beach Street & The Embarcadero, San Francisco, California, 94133, United States",
+            "duration": 60
+          },
+          {
+            "name": "Cable Car Museum",
+            "address": "1201 Mason Street, San Francisco, California, 94108, United States",
+            "duration": 60
+          },
+          {
+            "name": "Lombard Street",
+            "address": "San Francisco, California, 94109, United States",
+            "duration": 30
+          },
+          {
+            "name": "San Francisco Bay",
+            "address": "San Francisco, California, United States",
+            "duration": 60
+          },
+          {
+            "name": "Cable Cars",
+            "address": "San Francisco, California, United States",
+            "duration": 60
+          }
+        ],
+        [
+          {
+            "name": "California Academy of Sciences",
+            "address": "55 Music Concourse Drive, San Francisco, California, 94118, United States",
+            "duration": 180
+          },
+          {
+            "name": "Crissy Field",
+            "address": "1199 East Beach, San Francisco, California, 94129, United States",
+            "duration": 60
+          },
+          {
+            "name": "Palace of Fine Arts Theatre",
+            "address": "3301 Lyon Street, San Francisco, California, 94123, United States",
+            "duration": 60
+          },
+          {
+            "name": "Golden Gate Bridge",
+            "address": "Lincoln Boulevard, near Doyle Drive and Fort Point, San Francisco, California, 94129, United States",
+            "duration": 60
+          },
+          {
+            "name": "Presidio of San Francisco",
+            "address": "San Francisco, California, 94129, United States",
+            "duration": 60
+          },
+          {
+            "name": "Baker Beach",
+            "address": "1504 Pershing Dr, San Francisco, California, 94129, United States",
+            "duration": 60
+          }
+        ],
+        [
+          {
+            "name": "Candlestick Point State Recreation Area",
+            "address": "At the corner of Gillman Avenue and Hunters Point Expressway, San Francisco, California, 94124, United States",
+            "duration": 60
+          },
+          {
+            "name": "AT&T Park",
+            "address": "24 Willie Mays Plaza, San Francisco, California, 94103, United States",
+            "duration": 120
+          },
+          {
+            "name": "Walt Disney Family Museum",
+            "address": "104 Montgomery St, San Francisco, California, 94129, United States",
+            "duration": 120
+          },
+          {
+            "name": "Lands End",
+            "address": "Point Lobos Avenue and El Camino del Mar, San Francisco, California, 94121, United States",
+            "duration": 60
+          },
+          {
+            "name": "Golden Gate Park",
+            "address": "501 Stanyan St, San Francisco, California, 94117, United States",
+            "duration": 60
+          },
+          {
+            "name": "Twin Peaks",
+            "address": "501 Twin Peaks Blvd, San Francisco, California, 94114, United States",
+            "duration": 60
+          }
+        ]
+      ],
+      "STATE": "_GUESSMODE",
+      "endedSessionCount": 0
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AEJZ42EHTE4EX7NQSRRXECRFD7BKLW5H5GHITJHTJRT77TMDDUB4NDEB65SATZ4XI3P3COGL2E7TXNW3QKQJ54CT3XOBOMGYM42SKW3QFFSDGYQSPYNMXVMEDLM6CSTL4PBEGAYY54EFQZAP53GI6EX4HU353RDM23MELPQ6CCXWV2UC3OWWIQ3L7TF5ZVQO46BQPKK23K6343Q"
+    },
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.743aafcb-f013-45d0-9eba-c39d903e5885",
+    "locale": "en-US",
+    "timestamp": "2017-07-09T07:29:47Z",
+    "intent": {
+      "name": "ThingsToBringIntent",
+      "slots": {}
+    }
+  },
+  "version": "1.0"
+}

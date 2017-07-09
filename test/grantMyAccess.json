@@ -1,0 +1,110 @@
+{
+  "session": {
+    "sessionId": "SessionId.e326e6e9-51cb-4c2e-896e-b5e4d3ba7631",
+    "application": {
+      "applicationId": "amzn1.ask.skill.ffb4f895-1526-4b51-b8a1-fa3d0d3bb3ba"
+    },
+    "attributes": {
+      "city_state": "San Francisco, CA",
+      "travel_days": 3,
+      "gamesPlayed": 0,
+      "trips": [
+        [
+          {
+            "name": "Alcatraz Island",
+            "address": "Pier 33, San Francisco, California, 94122, United States"
+          },
+          {
+            "name": "Pier 39",
+            "address": "Beach Street & The Embarcadero, San Francisco, California, 94133, United States"
+          },
+          {
+            "name": "Cable Car Museum",
+            "address": "1201 Mason Street, San Francisco, California, 94108, United States"
+          },
+          {
+            "name": "Lombard Street",
+            "address": "San Francisco, California, 94109, United States"
+          },
+          {
+            "name": "San Francisco Bay",
+            "address": "San Francisco, California, United States"
+          },
+          {
+            "name": "Cable Cars",
+            "address": "San Francisco, California, United States"
+          }
+        ],
+        [
+          {
+            "name": "California Academy of Sciences",
+            "address": "55 Music Concourse Drive, San Francisco, California, 94118, United States"
+          },
+          {
+            "name": "Crissy Field",
+            "address": "1199 East Beach, San Francisco, California, 94129, United States"
+          },
+          {
+            "name": "Palace of Fine Arts Theatre",
+            "address": "3301 Lyon Street, San Francisco, California, 94123, United States"
+          },
+          {
+            "name": "Golden Gate Bridge",
+            "address": "Lincoln Boulevard, near Doyle Drive and Fort Point, San Francisco, California, 94129, United States"
+          },
+          {
+            "name": "Presidio of San Francisco",
+            "address": "San Francisco, California, 94129, United States"
+          },
+          {
+            "name": "Baker Beach",
+            "address": "1504 Pershing Dr, San Francisco, California, 94129, United States"
+          }
+        ],
+        [
+          {
+            "name": "Candlestick Point State Recreation Area",
+            "address": "At the corner of Gillman Avenue and Hunters Point Expressway, San Francisco, California, 94124, United States"
+          },
+          {
+            "name": "AT&T Park",
+            "address": "24 Willie Mays Plaza, San Francisco, California, 94103, United States"
+          },
+          {
+            "name": "Walt Disney Family Museum",
+            "address": "104 Montgomery St, San Francisco, California, 94129, United States"
+          },
+          {
+            "name": "Lands End",
+            "address": "Point Lobos Avenue and El Camino del Mar, San Francisco, California, 94121, United States"
+          },
+          {
+            "name": "Golden Gate Park",
+            "address": "501 Stanyan St, San Francisco, California, 94117, United States"
+          },
+          {
+            "name": "Twin Peaks",
+            "address": "501 Twin Peaks Blvd, San Francisco, California, 94114, United States"
+          }
+        ]
+      ],
+      "STATE": "_GUESSMODE",
+      "endedSessionCount": 0
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AEJZ42EHTE4EX7NQSRRXECRFD7BKLW5H5GHITJHTJRT77TMDDUB4NDEB65SATZ4XI3P3COGL2E7TXNW3QKQJ54CT3XOBOMGYM42SKW3QFFSDGYQSPYNMXVMEDLM6CSTL4PBEGAYY54EFQZAP53GI6EX4HU353RDM23MELPQ6CCXWV2UC3OWWIQ3L7TF5ZVQO46BQPKK23K6343Q"
+    },
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.47ae3cb0-e0ce-441d-828e-e42d74b76370",
+    "locale": "en-US",
+    "timestamp": "2017-07-09T02:48:25Z",
+    "intent": {
+      "name": "GrantListCardAccess",
+      "slots": {}
+    }
+  },
+  "version": "1.0"
+}
