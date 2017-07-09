@@ -1,3 +1,4 @@
 src/*.zip
 */node_modules
 .DS_Store
+src/trip-planner-loopback/server/datasources.json

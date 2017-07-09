@@ -1,0 +1,60 @@
+{
+  "name": "full_trip_details",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "img_url": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "popularity": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "prototype.search": {
+      "accepts": [
+        {
+          "arg": "city",
+          "type": "string"
+        },
+        {
+          "arg": "state",
+          "type": "string"
+        },
+        {
+          "arg": "n_days",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "arg": "trips",
+        "type": "object"
+      },
+      "http": {
+        "verb": "get",
+        "path": "/search"
+      }
+    }
+  }
+}

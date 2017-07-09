@@ -143,7 +143,7 @@ var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
     'ThingsToBringIntent': function() {
         var basicItems = ['Toothbrush', 'Toothpatse', 'Towel', 'Flip Flops'];
         var cardTitle = 'Travel Basic Package';
-        var cardContent = 'Please rembmer to bring: \n' + '1. '+ basicItems[0] + '\n' + '2. ' + basicItems[1]  + '\n' + '3. ' + basicItems[2]  + '\n' + '4. ' + basicItems[3] + '\n';
+        var cardContent = 'Please remembmer to bring: \n' + '1. '+ basicItems[0] + '\n' + '2. ' + basicItems[1]  + '\n' + '3. ' + basicItems[2]  + '\n' + '4. ' + basicItems[3] + '\n';
         var sentenceEnd = 'Do you want to see what other travelers suggest to bring?';
         var outputSpeech = cardContent + sentenceEnd;
         this.handler.state = states.BRINGSTUFFMODE;
@@ -177,6 +177,6 @@ var travelKitHandlers = Alexa.CreateStateHandler(states.BRINGSTUFFMODE, {
             return item.city === city;
         });
         var outputSpeech = returnResponse ? returnResponse.response : smartResponses[2].response;
-        this.emit(':tellWithCard', outputSpeech, cardTitle, city);
+        this.emit(':tellWithCard', outputSpeech, cardTitle, outputSpeech);
     }
 });
