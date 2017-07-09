@@ -1,4 +1,75 @@
-{"intents": [
-    {"intent": "GetCityAndDaysIntent", "slots": [{"name": "city", "type": "LITERAL"}, {"name": "travelDays", "type": "AMAZON.NUMBER"}]}
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "GetCityAndDays",
+      "samples": [
+        "I want to go to {City} for {TravelDays} days.",
+        "I am planning to go to {City} for {TravelDays} days",
+        "I am thinking about going to {City} for {TravelDays} days"
+      ],
+      "slots": [
+        {
+          "name": "City",
+          "type": "AMAZON.AT_CITY",
+          "samples": []
+        },
+        {
+          "name": "TravelDays",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "GetOtherDayDetail",
+      "samples": [
+        "Can I get day {theOtherDay} trip detail",
+        "I want to see day {theOtherDay} trip detail",
+        "Please show me day {theOtherDay} trip detail",
+        "Please show me day {theOtherDay} trip"
+      ],
+      "slots": [
+        {
+          "name": "theOtherDay",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "GrantListCardAccess",
+      "samples": [
+        "Add to my list"
+      ],
+      "slots": []
+    },
+    {
+      "name": "TempYesIntent",
+      "samples": [
+        "Yes"
+      ],
+      "slots": []
+    },
+    {
+      "name": "ThingsToBringIntent",
+      "samples": [
+        "What do I need to bring",
+        "Please tell me what to bring",
+        "Things I need there"
+      ],
+      "slots": []
+    }
   ]
 }
