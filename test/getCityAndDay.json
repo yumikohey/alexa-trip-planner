@@ -1,12 +1,12 @@
 {
   "session": {
-    "sessionId": "SessionId.16a9cac1-fb1d-4edb-a707-49afff7039f0",
+    "sessionId": "SessionId.d500d54f-16db-4d8b-a775-81c8073fbea5",
     "application": {
       "applicationId": "amzn1.ask.skill.ffb4f895-1526-4b51-b8a1-fa3d0d3bb3ba"
     },
     "attributes": {
       "city_state": "San Francisco, CA",
-      "travel_days": 3,
+      "travel_days": 2,
       "gamesPlayed": 0,
       "STATE": "_GUESSMODE",
       "endedSessionCount": 0
@@ -18,12 +18,21 @@
   },
   "request": {
     "type": "IntentRequest",
-    "requestId": "EdwRequestId.aa3fceca-4a27-449c-90a1-e41e6d67971f",
+    "requestId": "EdwRequestId.243709b0-453d-41e0-a120-cfc2a027cdfd",
     "locale": "en-US",
-    "timestamp": "2017-07-08T22:27:20Z",
+    "timestamp": "2017-07-09T00:14:27Z",
     "intent": {
-      "name": "TempYesIntent",
-      "slots": {}
+      "name": "GetCityAndDays",
+      "slots": {
+        "City": {
+          "name": "City",
+          "value": "San Francisco"
+        },
+        "TravelDays": {
+          "name": "TravelDays",
+          "value": "2"
+        }
+      }
     }
   },
   "version": "1.0"

@@ -1,0 +1,86 @@
+{
+  "session": {
+    "sessionId": "SessionId.b39fe8ad-1b29-406f-be72-eef47d1ce4f0",
+    "application": {
+      "applicationId": "amzn1.ask.skill.ffb4f895-1526-4b51-b8a1-fa3d0d3bb3ba"
+    },
+    "attributes": {
+      "city_state": "Los Angeles, CA",
+      "travel_days": 3,
+      "gamesPlayed": 0,
+      "trips": [
+        [
+          {
+            "name": "Norton Simon Museum",
+            "address": "411 W. Colorado Blvd., Pasadena, California, 91105, United States"
+          },
+          {
+            "name": "Mission San Gabriel Archangel",
+            "address": "537 W. Mission Drive, San Gabriel, California, 91775, United States"
+          },
+          {
+            "name": "Santa Anita Race Park",
+            "address": "285 W Huntington Drive, Arcadia, California, 91007, United States"
+          },
+          {
+            "name": "Monrovia Canyon Park",
+            "address": "1200 N Canyon Blvd, Monrovia, California, 91016, United States"
+          },
+          {
+            "name": "Bridge To Nowhere",
+            "address": "Azusa, California, United States"
+          },
+          {
+            "name": "Rancho Santa Ana Botanic Garden",
+            "address": "1500 N. College Ave, Claremont, California, 91711, United States"
+          }
+        ],
+        [
+          {
+            "name": "Warner Bros. Studio Tour Hollywood",
+            "address": "3400 W. Riverside Dr., Burbank, California, 91505, United States"
+          },
+          {
+            "name": "The Americana at Brand",
+            "address": "889 Americana Way, Ste. 330, Glendale, California, 91210, United States"
+          },
+          {
+            "name": "StubHub Center",
+            "address": "18400 Avalon Blvd, Carson, California, 90746, United States"
+          },
+          {
+            "name": "Wilson Park",
+            "address": "2400 Jefferson St, Torrance, California, 90501, United States"
+          }
+        ],
+        [
+          {
+            "name": "Six Flags Magic Mountain",
+            "address": "26101 Magic Mountain Parkway, Santa Clarita, California, 91355, United States"
+          },
+          {
+            "name": "Castaic Lake",
+            "address": "31540 Ridge Route Rd, Castaic, California, 91384, United States"
+          }
+        ]
+      ],
+      "STATE": "_GUESSMODE",
+      "endedSessionCount": 0
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AEJZ42EHTE4EX7NQSRRXECRFD7BKLW5H5GHITJHTJRT77TMDDUB4NDEB65SATZ4XI3P3COGL2E7TXNW3QKQJ54CT3XOBOMGYM42SKW3QFFSDGYQSPYNMXVMEDLM6CSTL4PBEGAYY54EFQZAP53GI6EX4HU353RDM23MELPQ6CCXWV2UC3OWWIQ3L7TF5ZVQO46BQPKK23K6343Q"
+    },
+    "new": false
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "EdwRequestId.3644522a-8945-4053-963c-7a8c1f368c34",
+    "locale": "en-US",
+    "timestamp": "2017-07-09T01:27:07Z",
+    "intent": {
+      "name": "TempYesIntent",
+      "slots": {}
+    }
+  },
+  "version": "1.0"
+}

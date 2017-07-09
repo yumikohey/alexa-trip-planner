@@ -68,7 +68,7 @@ sts.assumeRole({
           }
         };        
         var lambda = require('../src/index.js');
-        var event = require('./getCityAndDays.json');
+        var event = require('./planMyTrip.json');
         lambda.handler(event, context());
     }
 });

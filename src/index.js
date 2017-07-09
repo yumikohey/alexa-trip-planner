@@ -179,6 +179,10 @@ var startGameHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
         this.handler.state = states.GUESSMODE;
         this.emit(':ask', 'Great! ' + 'Please tell me where you want to go for how many days? For example, you can tell me I want to go to San Francisco for two days.');
     },
+    "AMAZON.StopIntent": function() {
+      console.log("STOPINTENT");
+      this.emit(':tell', "Goodbye!");  
+    }
 });
 
 var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
@@ -216,7 +220,14 @@ var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
         var path = '/full_trip_search/?'
         var completePath = host + path + params;
         var sentenceStart = 'Here is your first day\'s trip details.';
-        var sentenceEnd = 'You can get the full trip details in your Alexa app.';
+        var sentenceEnd = '. You can ask for the other day\'s trip detail. For example, show me day two\'s trip detail. Or you can check your Alexa app for the complete trip details.';
+        var repromptSpeech = 'You can say, Please show me Day two trip detail.';
+        var cardTitle = this.attributes['city_state'] + " Trip: Day 1";
+        var cardContent = '';
+        var imageObj = {
+            smallImageUrl: '',
+            largeImageUrl: ''
+        };
         axios.get(completePath)
             .then(function(response) {
                 var fullTrips = response.data.full_trip_details;
@@ -230,8 +241,38 @@ var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
                 });
                 _this.attributes['trips'][0].forEach(function(item){
                     listOfPointOfInterests += item.name + ", ";
-                })
-                _this.emit(':tell', sentenceStart + ' You can go to: ' + listOfPointOfInterests + sentenceEnd);
+                    cardContent += 'Place: ' + item.name + '\n';
+                    // cardContent += 'Address: ' + item.address +'\n';
+                });
+                imageObj.smallImageUrl = fullTrips[0].img_url;
+                imageObj.largeImageUrl = fullTrips[0].img_url;
+                listOfPointOfInterests = listOfPointOfInterests.substr(0, listOfPointOfInterests.length - 2);
+
+                _this.emit(':askWithCard', sentenceStart + ' You can go to: ' + listOfPointOfInterests + sentenceEnd, repromptSpeech, cardTitle, cardContent, imageObj);
             });
+    },
+    'AMAZON.StopIntent': function() {
+      console.log("STOPINTENT");
+      this.emit(':tell', "Goodbye!");  
+    },
+    'GetOtherDayDetail': function() {
+        var theOtherDay = parseInt(this.event.request.intent.slots.theOtherDay.value);
+        console.log(" User requested for day " + theOtherDay + "trip details");
+        var cardTitle = this.attributes['city_state'] + " Trip: Day " + theOtherDay;
+        var listOfPointOfInterests = '';
+        var sentenceStart = 'Here is your Day ' + theOtherDay +' trip details.';
+        var cardContent = '';
+        var repromptSpeech = 'You can say, Please show me Day two trip detail.';
+        this.attributes['trips'][theOtherDay - 1].forEach(function(item){
+            listOfPointOfInterests += item.name + ", ";
+            cardContent += 'Place: ' + item.name + '\n';
+            // cardContent += 'Address: ' + item.address +'\n';
+        });
+        var imageObj = {
+            smallImageUrl: '',
+            largeImageUrl: ''
+        };
+        listOfPointOfInterests = listOfPointOfInterests.substr(0, listOfPointOfInterests.length - 2);
+        this.emit(':askWithCard', sentenceStart + ' You can go to: ' + listOfPointOfInterests, repromptSpeech, cardTitle, cardContent, imageObj);
     }
 });
