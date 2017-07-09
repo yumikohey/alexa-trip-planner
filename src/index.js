@@ -144,7 +144,7 @@ var guessModeHandlers = Alexa.CreateStateHandler(states.GUESSMODE, {
         var basicItems = ['Toothbrush', 'Toothpatse', 'Towel', 'Flip Flops'];
         var cardTitle = 'Travel Basic Package';
         var cardContent = 'Please remembmer to bring: \n' + '1. '+ basicItems[0] + '\n' + '2. ' + basicItems[1]  + '\n' + '3. ' + basicItems[2]  + '\n' + '4. ' + basicItems[3] + '\n';
-        var sentenceEnd = 'Do you want to see what other travelers suggest to bring?';
+        var sentenceEnd = 'You can say "Send Me Travel Kit". We will ship the travel kit to your Airbnb or hotels in the travel destination.';
         var outputSpeech = cardContent + sentenceEnd;
         this.handler.state = states.BRINGSTUFFMODE;
         var imageObj = {
@@ -178,5 +178,17 @@ var travelKitHandlers = Alexa.CreateStateHandler(states.BRINGSTUFFMODE, {
         });
         var outputSpeech = returnResponse ? returnResponse.response : smartResponses[2].response;
         this.emit(':tellWithCard', outputSpeech, cardTitle, outputSpeech);
+    },
+    'SendMePackages': function () {
+        var basicItems = ['Toothbrush', 'Toothpatse', 'Towel', 'Flip Flops'];
+        var cardTitle = 'Preparing to send Travel Kit to your Airbnb.';
+        var cardContent = 'Travel Kit items: \n' + '1. '+ basicItems[0] + '\n' + '2. ' + basicItems[1]  + '\n' + '3. ' + basicItems[2]  + '\n' + '4. ' + basicItems[3] + '\n';
+        var sentenceEnd = 'Do you want to know what other travelers suggest to bring?';
+        var outputSpeech = 'Great! I am preparing to ship the travel kit to you now.' + sentenceEnd;
+        var imageObj = {
+            smallImageUrl: '',
+            largeImageUrl: ''
+        };
+        this.emit(':askWithCard', outputSpeech, sentenceEnd, cardTitle, cardContent, imageObj);
     }
 });

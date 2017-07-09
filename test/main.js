@@ -68,7 +68,7 @@ sts.assumeRole({
           }
         };        
         var lambda = require('../src/index.js');
-        var event = require('./travelKitIntent.json');
+        var event = require('./sendMeTravelKit.json');
         lambda.handler(event, context());
     }
 });
